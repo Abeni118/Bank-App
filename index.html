@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NextGen Bank Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="close-btn" id="close-btn">&times;</div>
+      <div class="logo"><img src="./image/bank_logo.png" alt=""></div>
+      <ul class="nav-links">
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#account">Account</a></li>
+        <li><a href="#transfer">Transfer</a></li>
+        <li><a href="#transactions">Transactions</a></li>
+        <li><a href="#settings">Settings</a></li>
+        <li><a href="#logout">Logout</a></li>
+      </ul>
+    </nav>
+
+    <!-- Main content -->
+    <main class="main">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="menu-icon" id="menu-icon">&#9776;</div>
+        <h1>Dashboard</h1>
+        <span class="user">Hello, Abenezer</span>
+      </header>
+
+      <!-- Balance Card -->
+      <section class="balance-card card">
+        <h2>Account Balance</h2>
+        <p class="balance-amount">$12,345.67</p>
+      </section>
+
+      <!-- Dashboard Row -->
+      <div class="dashboard-row">
+        <!-- Left Column -->
+        <div class="dashboard-left">
+          <div class="movements-card card">
+            <h2>Transaction History</h2>
+            <ul class="movements-list">
+              <li class="deposit">+ $500 <span>Salary</span></li>
+              <li class="withdrawal">- $120 <span>Groceries</span></li>
+              <li class="deposit">+ $250 <span>Freelance</span></li>
+              <li class="withdrawal">- $50 <span>Coffee</span></li>
+              <li class="withdrawal">- $50 <span>Coffee</span></li>
+              <li class="withdrawal">- $50 <span>Coffee</span></li>
+              <li class="deposit">+ $250 <span>Freelance</span></li>
+              <li class="deposit">+ $250 <span>Freelance</span></li>
+              
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="dashboard-right">
+          <div class="transfer-card card">
+            <h2>Send Money</h2>
+            <form id="form-transfer">
+              <input type="text" placeholder="Recipient Username" required>
+              <input type="number" placeholder="Amount" required>
+              <button type="submit">Send</button>
+            </form>
+          </div>
+
+          <div class="loan-card card">
+            <h2>Request Loan</h2>
+            <form id="form-loan">
+              <input type="number" placeholder="Amount" required>
+              <button type="submit">Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- JS for sidebar toggle -->
+  <script src="script.js"></script>
+
+</body>
+</html>

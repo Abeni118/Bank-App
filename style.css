@@ -1,0 +1,265 @@
+/* --------------------------------------------------
+   RESET & BASE
+-------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #f0f3f7;
+    color: #2c3e50;
+}
+
+/* --------------------------------------------------
+   MAIN CONTAINER
+-------------------------------------------------- */
+.container {
+    display: flex;
+    min-height: 100vh;
+    transition: all 0.3s ease;
+}
+
+/* --------------------------------------------------
+   SIDEBAR
+-------------------------------------------------- */
+.sidebar {
+    width: 220px;
+    background: #1f2937;
+    color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #10b981;
+}
+
+.logo img {
+    width: 180px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-links li {
+    text-align: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+    display: block;
+}
+
+.nav-links li a:hover {
+    background: #10b981;
+}
+
+.close-btn {
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: none;
+}
+
+
+  /* MAIN CONTENT */
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 25px 30px;
+    transition: all 0.3s ease;
+}
+
+/* TOPBAR */
+.topbar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.topbar h1 {
+    font-size: 1.6rem;
+    flex: 1;
+    color: #111827;
+}
+
+.user {
+    font-weight: 500;
+    color: #111827;
+}
+
+.menu-icon {
+    font-size: 1.8rem;
+    cursor: pointer;
+    display: none;
+    margin-right: 15px;
+}
+
+/* CARDS */
+.card {
+    background: #fff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* BALANCE CARD */
+.balance-card {
+    background: linear-gradient(135deg, #ccf6e6, #c1e6da);
+    color: goldenrod;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.balance-card .balance-amount {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* DASHBOARD GRID (EQUAL SIZE) */
+.dashboard-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 equal columns */
+    gap: 40px;
+    width: 100%;
+}
+
+.dashboard-left,
+.dashboard-right {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* MOVEMENTS LIST */
+.movements-list {
+    list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.movements-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    transition: all 0.2s ease;
+}
+
+.movements-list li.deposit {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.movements-list li.withdrawal {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.movements-list li:hover {
+    opacity: 0.85;
+}
+
+/* Scrollbar */
+.movements-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.movements-list::-webkit-scrollbar-thumb {
+    background: #10b981;
+    border-radius: 3px;
+}
+
+/* --------------------------------------------------
+   FORMS
+-------------------------------------------------- */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+form input {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+form input:focus {
+    border-color: #10b981;
+    outline: none;
+}
+
+form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #10b981;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #059669;
+}
+
+/* --------------------------------------------------
+   RESPONSIVE SIDEBAR
+-------------------------------------------------- */
+@media (max-width: 900px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .close-btn {
+        display: block;
+    }
+
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        height: 100%;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .dashboard-row {
+        grid-template-columns: 1fr; /* 1 column on small screens */
+    }
+}
