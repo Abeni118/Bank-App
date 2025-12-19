@@ -1,6 +1,4 @@
-/* --------------------------------------------------
-   RESET & BASE
--------------------------------------------------- */
+
 * {
     margin: 0;
     padding: 0;
@@ -11,20 +9,17 @@
 body {
     background: #f0f3f7;
     color: #2c3e50;
+  
 }
 
-/* --------------------------------------------------
-   MAIN CONTAINER
--------------------------------------------------- */
+/*MAIN CONTAINER*/
 .container {
     display: flex;
     min-height: 100vh;
     transition: all 0.3s ease;
 }
 
-/* --------------------------------------------------
-   SIDEBAR
--------------------------------------------------- */
+/* SIDEBAR*/
 .sidebar {
     width: 220px;
     background: #1f2937;
@@ -35,6 +30,7 @@ body {
     position: relative;
     transition: left 0.3s ease;
     z-index: 1000;
+   
 }
 
 .sidebar .logo {
@@ -49,6 +45,22 @@ body {
     width: 180px;
 }
 
+.login{
+  border: none;
+  padding: 0.5rem ;
+  font-size: 12px;
+  font-family: inherit;
+  text-align: center;
+  width:80px;
+  border-radius: 10rem;
+  margin-right: 1rem;
+  color: inherit;
+  border: 1px solid #fff;
+  transition: all 0.3s;
+}
+.login_btn{
+    width: 40px;
+}
 .nav-links {
     list-style: none;
     display: flex;
@@ -58,6 +70,14 @@ body {
 
 .nav-links li {
     text-align: center;
+}
+.logout{
+    margin-top: 200px;
+    border-top: 1px solid rgb(169, 162, 151);
+}
+.logout a{
+    margin-top: 20px;
+
 }
 
 .nav-links li a {
@@ -70,7 +90,7 @@ body {
 }
 
 .nav-links li a:hover {
-    background: #10b981;
+    background: #7fa096;
 }
 
 .close-btn {
@@ -107,6 +127,17 @@ body {
 .user {
     font-weight: 500;
     color: #111827;
+}
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
 }
 
 .menu-icon {
@@ -148,46 +179,89 @@ body {
 .dashboard-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);  /* 2 equal columns */
+    grid-template-rows: repeat(2, 1fr);
     gap: 40px;
     width: 100%;
 }
 
-.dashboard-left,
+.dashboard-left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+}
 .dashboard-right {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
+.dashboard-right .btn{
+    width:150px;
+    margin-left: 40%;
+}
+.dashboard-heading{
+    margin-bottom: 20px;
+}
+/* --- TRANSACTION HISTORY (MOVEMENTS) --- */
 
-/* MOVEMENTS LIST */
+/* Remove default padding/bullets */
 .movements-list {
-    list-style: none;
-    max-height: 400px;
-    overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px; /* Limits height and allows scrolling if too many items */
+  overflow-y: auto;
 }
 
 .movements-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 12px;
-    border-radius: 8px;
-    margin-bottom: 8px;
-    transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  transition: transform 0.2s ease;
 }
 
-.movements-list li.deposit {
-    background: #d1fae5;
-    color: #065f46;
-}
-
-.movements-list li.withdrawal {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
+/* Subtle hover effect */
 .movements-list li:hover {
-    opacity: 0.85;
+  transform: translateX(5px);
+}
+
+/* Deposit Style */
+.deposit {
+  background-color: #e6fcf5; /* Light green background */
+  color: #087f5b;           /* Dark green text */
+  border-left: 5px solid #087f5b;
+}
+
+/* Withdrawal Style */
+.withdrawal {
+  background-color: #fff5f5; /* Light red background */
+  color: #c92a2a;           /* Dark red text */
+  border-left: 5px solid #c92a2a;
+}
+
+/* The Amount Span */
+.movements-list li span {
+  font-family: 'Courier New', Courier, monospace; /* Monospace looks better for numbers */
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Optional: Styling the scrollbar for the list */
+.movements-list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.movements-list::-webkit-scrollbar-thumb {
+  background-color: #e0e0e0;
+  border-radius: 10px;
 }
 
 /* Scrollbar */
@@ -200,9 +274,7 @@ body {
     border-radius: 3px;
 }
 
-/* --------------------------------------------------
-   FORMS
--------------------------------------------------- */
+/* --FORMS-- */
 form {
     display: flex;
     flex-direction: column;
@@ -236,9 +308,7 @@ form button:hover {
     background: #059669;
 }
 
-/* --------------------------------------------------
-   RESPONSIVE SIDEBAR
--------------------------------------------------- */
+/* --RESPONSIVE SIDEBAR-- */
 @media (max-width: 900px) {
     .menu-icon {
         display: block;

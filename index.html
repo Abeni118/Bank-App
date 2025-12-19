@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NextGen Bank Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
 
-    <!-- Sidebar -->
-    <nav class="sidebar" id="sidebar">
-      <div class="close-btn" id="close-btn">&times;</div>
-      <div class="logo"><img src="./image/bank_logo.png" alt=""></div>
-      <ul class="nav-links">
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#account">Account</a></li>
-        <li><a href="#transfer">Transfer</a></li>
-        <li><a href="#transactions">Transactions</a></li>
-        <li><a href="#settings">Settings</a></li>
-        <li><a href="#logout">Logout</a></li>
-      </ul>
-    </nav>
+  <!-- Sidebar -->
+  <nav class="sidebar" id="sidebar">
+    <div class="close-btn" id="close-btn">&times;</div>
+    <div class="logo"><img src="./image/bank_logo.png" alt=""></div>
+    <ul class="nav-links">
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Account</a></li>
+      <li><a href="#">Transfer</a></li>
+      <li><a href="#">Transactions</a></li>
+      <li><a href="#">Settings</a></li>
+      <li class="logout"><a href="#">Logout</a></li>
+    </ul>
+  </nav>
 
-    <!-- Main content -->
-    <main class="main">
-      <!-- Topbar -->
-      <header class="topbar">
-        <div class="menu-icon" id="menu-icon">&#9776;</div>
-        <h1>Dashboard</h1>
-        <span class="user">Hello, Abenezer</span>
-      </header>
+  <!-- Main -->
+  <main class="main">
 
-      <!-- Balance Card -->
-      <section class="balance-card card">
+    <!-- Topbar -->
+    <header class="topbar">
+      <div class="menu-icon" id="menu-icon">&#9776;</div>
+      <h1>Dashboard</h1>
+
+      <input type="text" placeholder="User" class="login input">
+      <input type="password" placeholder="PIN" maxlength="4" class="login input_pin">
+      <button class="login login_btn">
+        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+      </button>
+
+      <span class="user">Log in</span>
+    </header>
+
+    <!-- DASHBOARD (HIDDEN BEFORE LOGIN) -->
+    <section class="container-main hidden">
+
+      <div class="balance-card card">
         <h2>Account Balance</h2>
-        <p class="balance-amount">$12,345.67</p>
-      </section>
+        <p class="balance-amount">$0</p>
+      </div>
 
-      <!-- Dashboard Row -->
       <div class="dashboard-row">
-        <!-- Left Column -->
+
         <div class="dashboard-left">
-          <div class="movements-card card">
+          <div class="card">
             <h2>Transaction History</h2>
-            <ul class="movements-list">
-              <li class="deposit">+ $500 <span>Salary</span></li>
-              <li class="withdrawal">- $120 <span>Groceries</span></li>
-              <li class="deposit">+ $250 <span>Freelance</span></li>
-              <li class="withdrawal">- $50 <span>Coffee</span></li>
-              <li class="withdrawal">- $50 <span>Coffee</span></li>
-              <li class="withdrawal">- $50 <span>Coffee</span></li>
-              <li class="deposit">+ $250 <span>Freelance</span></li>
-              <li class="deposit">+ $250 <span>Freelance</span></li>
-              
-            </ul>
+            <ul class="movements-list"></ul>
           </div>
         </div>
 
-        <!-- Right Column -->
         <div class="dashboard-right">
-          <div class="transfer-card card">
+
+          <div class="card">
             <h2>Send Money</h2>
-            <form id="form-transfer">
-              <input type="text" placeholder="Recipient Username" required>
-              <input type="number" placeholder="Amount" required>
+            <form>
+              <input type="text" placeholder="Recipient">
+              <input type="number" placeholder="Amount">
               <button type="submit">Send</button>
             </form>
           </div>
 
-          <div class="loan-card card">
+          <div class="card">
             <h2>Request Loan</h2>
-            <form id="form-loan">
-              <input type="number" placeholder="Amount" required>
+            <form>
+              <input type="number" placeholder="Amount">
               <button type="submit">Request</button>
             </form>
           </div>
+
         </div>
       </div>
-    </main>
-  </div>
+    </section>
 
-  <!-- JS for sidebar toggle -->
-  <script src="script.js"></script>
+  </main>
+</div>
 
+<script src="script.js"></script>
 </body>
 </html>
