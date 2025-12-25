@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NextGen Bank Dashboard</title>
+  <title>NextGen Bank </title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 </head>
@@ -12,7 +12,7 @@
 <div class="container">
 
   <!-- Sidebar -->
-  <nav class="sidebar" id="sidebar">
+  <nav class="sidebar sidebar-hidden" id="sidebar">
     <div class="close-btn" id="close-btn">&times;</div>
     <div class="logo"><img src="./image/bank_logo.png" alt=""></div>
     <ul class="nav-links">
@@ -29,9 +29,9 @@
   <main class="main">
 
     <!-- Topbar -->
-    <header class="topbar">
+    <header class="topbar hidden">
       <div class="menu-icon" id="menu-icon">&#9776;</div>
-      <h1>Dashboard</h1>
+      <h1  class="heading"></h1>
 
       <input type="text" placeholder="User" class="login input">
       <input type="password" placeholder="PIN" maxlength="4" class="login input_pin">
@@ -39,7 +39,7 @@
         <i class="fa-solid fa-arrow-right-to-bracket"></i>
       </button>
 
-      <span class="user">Log in</span>
+      <span class="user"></span>
     </header>
 
     <!-- DASHBOARD (HIDDEN BEFORE LOGIN) -->
@@ -66,7 +66,7 @@
             <form>
               <input type="text" placeholder="Recipient">
               <input type="number" placeholder="Amount">
-              <button type="submit">Send</button>
+              <button type="submit" class="btn loan">Send</button>
             </form>
           </div>
 
@@ -74,17 +74,135 @@
             <h2>Request Loan</h2>
             <form>
               <input type="number" placeholder="Amount">
-              <button type="submit">Request</button>
+              <button type="submit" class="btn">Request</button>
             </form>
           </div>
 
         </div>
+    <div class="card card-1 utility-card">
+  <h3>Pay Utility Bill</h3>
+  <form id="utility-form">
+    <label for="utility-type">Select Utility</label>
+    <select id="utility-type" required>
+      <option value="" disabled selected>Choose a utility</option>
+      <option value="electricity">Electricity</option>
+      <option value="water">Water</option>
+      <option value="internet">Internet</option>
+      <option value="gas">Gas</option>
+    </select>
+
+    <label for="utility-amount">Amount ($)</label>
+    <input type="number" id="utility-amount" placeholder="Enter amount" required min="1">
+
+    <button type="submit" class="btn utility-botton">Pay Bill</button>
+  </form>
+</div>
+<div class="card card-1 close-card">
+  <h3>Close Account</h3>
+  <form id="close-form">
+    <label for="close-username">Username</label>
+    <input type="text" id="close-username" placeholder="Enter your username" required>
+
+    <label for="close-pin">PIN</label>
+    <input type="password" id="close-pin" placeholder="Enter your PIN" required maxlength="4">
+
+    <button type="submit" class="btn close-botton">Close Account</button>
+  </form>
+</div>
+
+      </div>
+       <div class="summary">
+        <p class="summary__label">Income</p>
+        <p class="summary__value summary__value--in">0000$</p>
+        <p class="summary__label">Outcome</p>
+        <p class="summary__value summary__value--out">0000$</p>
+        <p class="summary__label">Interest</p>
+        <p class="summary__value summary__value--interest">0000$</p>
+        <button class="btn--sort">&downarrow; SORT</button>
       </div>
     </section>
+    <div class="login-layout">
+   <div class="login-container ">
+        <!-- Left side with branding and features -->
+        <div class="login-left">
+         
+            <div class="bank-logo">
+                <img src="./image/logo copy.png" alt="" width="200px" >
+                <h1>NG Bank</h1>
+            </div>
+            
+            <div class="bank-features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Bank-Level Security</h4>
+                        <p>Your financial data is protected with 256-bit encryption</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <div>
+                        <h4>Instant Transfers</h4>
+                        <p>Send money to anyone, anywhere in seconds</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-chart-line"></i>
+                    <div>
+                        <h4>Financial Insights</h4>
+                        <p>Track your spending and manage your budget effectively</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-note">
+                <i class="fas fa-lock"></i>
+                <p>This is a secure banking portal. Your privacy is our priority.</p>
+            </div>
+        </div>
+        
+        <!-- Right side with login form -->
+        <div class="login-right">
+            <div class="welcome-text">
+                <h2>Welcome Back</h2>
+                <p>Sign in to access your account dashboard</p>
+            </div>
+            
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username or Email</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="username" placeholder="Enter your username or email" required>
+                    </div>
+                    <div class="error-message" id="usernameError">Please enter a valid username or email</div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <div class="error-message" id="passwordError">Please enter your password</div>
+                </div>
+    
+                
+                <button class="login-btn">Sign In<i class="fa-solid fa-arrow-right-to-bracket"></i></button>
+                
+               
+            </form>
+        </div>
+    </div>
+
+  
+
 
   </main>
 </div>
-
+<script src="login.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
