@@ -103,9 +103,6 @@ function handleLogin() {
     loginLayout.classList.add('hidden');
 
 
-    
-
-
     displayMovements(currentAccount.movements);
     calcDisplayBalance(currentAccount.movements);
 
